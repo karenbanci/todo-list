@@ -1,10 +1,16 @@
 import './App.css';
-import TodoList from './pages/todo-list';
+import ToDoList from './pages/todo-list';
 
 function App() {
+  // console.log(ToDoList);
+  // console.log(ToDoList.addTask);
+
+  console.log(ToDoList.addTask("karen", new Date()));
+  console.log(ToDoList.showTasks());
+
   return (
     <div className="App">
-      <TodoList/>
+      {/* <ToDoList/> */}
     </div>
   );
 }
