@@ -1,18 +1,9 @@
 import './App.css';
-import ToDoList from './pages/todo-list';
+import ToDoView from "./todo-list/todo-list-view";
+
 
 function App() {
-  // console.log(ToDoList);
-  // console.log(ToDoList.addTask);
-
-  console.log(ToDoList.addTask("karen", new Date()));
-  console.log(ToDoList.showTasks());
-
-  return (
-    <div className="App">
-      {/* <ToDoList/> */}
-    </div>
-  );
+  return <div className="App">{<ToDoView/>}</div>;
 }
 
 export default App;

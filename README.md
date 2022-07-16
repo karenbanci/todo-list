@@ -68,3 +68,49 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+  // function  removeTask() {
+  //   if(!taskId){
+  //     return { success: false, message: "Invalid task" };
+  //   }
+  //   // vai pegar a referência do nó
+  //   let taskRef = database.child('/tasks' + taskId);
+
+  //   taskRef.remove()
+  //     .then(function () {
+  //       return { success: true, message: "Task was removed with success" };
+  //     })
+  //     .catch(function (error) {
+  //       return { success: false, message: `Remove failed: ${error.message}` };
+  //     });
+
+  // }
+
+  // atualizar caso eu queira editar a tarefa
+  // function updateTask(data, completionDate) {
+  //   if (!taskId) {
+  //     return { success: false, message: "Invalid task" };
+  //   }
+
+  //   let taskRef = database.child("/tasks" + taskId);
+
+  //   let updateTask = {};
+  //   updateTask["/tasks"] = data;
+  //   updateTask["/completionDate"] = completionDate;
+
+  //   taskRef.update(updateTask)
+  //     .then(function () {
+  //       return { success: true, message: "Updated with success" };
+  //     })
+  //     .catch(function (error) {
+  //       return {
+  //         success: false,
+  //         message: `Failed: ${error.message}`,
+  //       };
+  //     });
+  // }
+
+  // taskDataBase.new = addTask;
+  // taskDataBase.remove = removeTask;
+  // taskDataBase.update = updateTask;
