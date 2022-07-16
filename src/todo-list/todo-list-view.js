@@ -25,16 +25,7 @@ export default function ToDoView() {
 
   return (
     <div className="container">
-      <div className="logo">
-        <img src="images/logo.png" alt="logo-monsters-univesity" />
-      </div>
       <div className="card-todo">
-        <img
-          className="card-image"
-          src="images/prof-knight.webp"
-          alt="prof-knight"
-        />
-
         <form className="add-tasks" onSubmit={handleTaskSubmit}>
           <div className="taskInformation">
             <label for="taskName">Tarefa</label>
@@ -51,10 +42,8 @@ export default function ToDoView() {
             <input
               type="date"
               className="taskDate"
-              id="start"
-              name="trip-start"
-              min="2022-01-01"
-              max="2023-12-31"
+              min="01-01-2022"
+              max="31-12-2023"
               value={taskDate}
               onChange={(e) => setTaskDate(e.target.value)}
             ></input>
@@ -67,11 +56,10 @@ export default function ToDoView() {
           />
         </form>
       </div>
-      {/* imprimir cada tarefa que foi adicionada */}
+      {/* imprimir cada tarefa que foi adicionada, lembrando que map só é utilizada para array, nesse caso tem que utilizar o Object para trabalhar junto com o map */}
       {Object.keys(tasks).map((task, id) => (
         <div className="show-tasks">
           <div className="task" key={id}>
-            <input type="checkbox" value={tasks[task].completed} />
             <h2>
               {tasks[task].title}
             </h2>
