@@ -32,10 +32,11 @@ const ToDoList = {
   // aqui vou mostrar todas as tarefas que foram adicionadas
   showTasks: function () {
     // fazer uma solicitação GET no banco de dados que obtém o resultado mais atualizado
-    get(child(ref(database), "tasks/"))
+    return get(child(ref(database), "tasks/"))
       .then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
+          return snapshot.val();
         } else {
           console.log("nao disponível");
         }
@@ -83,4 +84,4 @@ const ToDoList = {
 
 }
 
-export default ToDoList
+export default ToDoList;
