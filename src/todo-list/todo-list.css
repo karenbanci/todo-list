@@ -5,30 +5,24 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  margin-top: 100px;
 }
 
 .logo{
-  margin-top: 30px;
+  margin: 100px auto;
 }
 
 .card-todo{
-  width: 45%;
-  height: 200px;
+  width: 50%;
+  height: 250px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.400);
   box-shadow: 1px 1px 10px rgba(128, 121, 121, 0.708);
   border-radius: 10px;
-  margin-top: 50px;
-}
-
-.card-image{
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin: 20px;
+  margin: 50px auto;
 }
 
 .add-tasks{
@@ -42,23 +36,24 @@
 .taskInformation {
   width: 100%;
   height: 20px;
-  margin: 10px auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   color: #0062AB;
   font-weight: bold;
+  font-size: 1.4rem;
 }
 
 .taskName{
-  width: 76%;
-  height: 20px;
+  width: 100%;
+  height: 30px;
   margin-left: 20px;
 }
 
 .taskDate {
-  width: 50%;
-  height: 20px;
+  width: 60%;
+  height: 30px;
   margin-left: 20px;
 
 }
@@ -90,14 +85,20 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.400);
+  background-color: rgba(255, 255, 255, 0.896);
   box-shadow: 1px 1px 10px rgba(128, 121, 121, 0.708);
   border-radius: 10px;
-  margin-top: 50px;
+  margin: 10px;
 }
 
 .task{
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
 }
 
+input[type=checkbox] {
+  transform: scale(1.5);
+}
