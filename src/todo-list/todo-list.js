@@ -1,5 +1,5 @@
 import {database} from "../firebase/myFirebase";
-import {ref, push, child, update, get, remove} from "firebase/database"
+import {ref, push, child, update, get, remove, query, orderByChild} from "firebase/database"
 
 const ToDoList = {
   // adicionar tarefa
@@ -32,11 +32,23 @@ const ToDoList = {
   // aqui vou mostrar todas as tarefas que foram adicionadas
   showTasks: function () {
     // fazer uma solicitação GET no banco de dados que obtém o resultado mais atualizado
-    return get(child(ref(database), "tasks/"))
+    return get(
+        query(
+          child(ref(database), "tasks/"),
+          orderByChild('completionDate')
+        ))
       .then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
-          return snapshot.val();
+          let orderedTasks = [];
+          snapshot.forEach((taskSnapshot) => {
+            console.log(taskSnapshot.key);
+            console.log(taskSnapshot.val());
+            const task = taskSnapshot.val()
+            task.id = taskSnapshot.key
+            orderedTasks.push(task);
+          })
+          return orderedTasks;
         } else {
           console.log("nao disponível");
         }
@@ -55,7 +67,8 @@ const ToDoList = {
 
     const updateTask = {};
     updateTask["/tasks/" + id] = taskData;
-    updateTask["/completionDate/" + id] = taskData;
+    // updateTask["/completionDate/" + id] = taskData;
+    // updateTask["/completed/" + id] = taskData;
 
     return update(ref(database), updateTask)
       .then(function () {
@@ -70,7 +83,7 @@ const ToDoList = {
   },
 
   removeTask: function (id) {
-    remove(ref(database, "tasks/" + id))
+    return remove(ref(database, "tasks/" + id))
       .then(function () {
         console.log('removed success');
         return { success: true, message: "Task was removed with success" };
