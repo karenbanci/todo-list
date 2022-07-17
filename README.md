@@ -13,12 +13,15 @@ You can create, edit or delete your tasks here.
 ![Edit a task date](./public/images/organizado-por-data.webp)
 
 ## Delete a task
+
 ![Delete a task title](./public/images/deletar-tarefa.webp)
 
 ____
+
 ## Documentation used in this project
 
 _____
+
 ### Firebase Documentation
 
 The Firebase Realtime Database is a cloud-hosted database. Data is stored as JSON and synchronized in realtime to every connected client. When you build cross-platform apps with our Android, Apple platforms, and JavaScript SDKs, all of your clients share one Realtime Database instance and automatically receive updates with the newest data. [Instalation and config Firebase Web in JavaScript](https://firebase.google.com/docs/database/web/start).
