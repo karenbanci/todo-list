@@ -6,11 +6,15 @@ You can create, edit or delete your tasks here.
 
 ![Create a new task](./public/images/adicionar-tarefa.webp)
 
+### Task organized for date
+
+![Edit a task date](./public/images/organizado-por-data.webp)
+
 ## Edit a task
 
 ![Edit a task title](./public/images/editar-nome-da-tarefa.webp)
 
-![Edit a task date](./public/images/organizado-por-data.webp)
+![Edit a task date](./public/images/editar-data.webp)
 
 ## Delete a task
 
@@ -19,8 +23,6 @@ You can create, edit or delete your tasks here.
 ____
 
 ## Documentation used in this project
-
-_____
 
 ### Firebase Documentation
 
