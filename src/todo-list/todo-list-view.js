@@ -116,7 +116,7 @@ export default function ToDoView() {
         </form>
       </div>
       {/* imprimir cada tarefa que foi adicionada, lembrando que map só é utilizada para array */}
-      {tasks.map((task, id) => {
+      {tasks?.map((task, id) => {
         console.log(task);
         return (
           <div className="show-tasks">
