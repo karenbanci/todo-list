@@ -17,7 +17,8 @@ export default function ToDoView() {
     });
   }
 
-  function editTask(task, event) {
+  // editar o título da tarefa
+  function editTaskTitle(task, event) {
     event.preventDefault();
     ToDoList.updateTask(
       event.target.value, // vai editar o title
@@ -28,7 +29,20 @@ export default function ToDoView() {
         refreshTasks();
       })
   }
+  // editar a data da tarefa
+    function editTaskDate(task, event) {
+      event.preventDefault();
+      ToDoList.updateTask(
+        task.title,
+        task.target.value, // vai editar a data
+        task.completed,
+        task.id
+      ).then((res) => {
+        refreshTasks();
+      });
+    }
 
+  // essa função vou reaproveitar para quando adicionar, editar ou deletar uma tarefa, a página será atualizada
   function refreshTasks() {
     ToDoList.showTasks()
       // pegando o setTasks do useState para mostrar a promessa
@@ -67,6 +81,7 @@ export default function ToDoView() {
 
   return (
     <div className="container">
+      <h1>Lista de tarefas</h1>
       <div className="card-todo">
         <form className="add-tasks" onSubmit={handleTaskSubmit}>
           <div className="taskInformation">
@@ -84,11 +99,12 @@ export default function ToDoView() {
             <input
               type="date"
               className="taskDate"
+              value={taskDate}
+              required
               min="01-01-2022"
               max="31-12-2023"
               onChange={(e) => setTaskDate(e.target.value)}
-              value={taskDate}
-            ></input>
+            />
           </div>
           <input
             type="submit"
@@ -104,15 +120,25 @@ export default function ToDoView() {
         return (
           <div className="show-tasks">
             <div className="task" key={id}>
-
-                <input
-                  type="checkbox"
-                  checked={task.completed}
-                  onChange={(e) => handleCheckboxSubmit(task, e)}
-                />
-                <input type="text" value={task.title} onChange={(e) => editTask(task, e)}/>
-
-              <h3>{task.completionDate}</h3>
+              <input
+                type="checkbox"
+                className="checkbox"
+                checked={task.completed}
+                onChange={(e) => handleCheckboxSubmit(task, e)}
+              />
+              {/* editar o tilulo da tarefa */}
+              <input
+                className="editTask"
+                type="text"
+                value={task.title}
+                onChange={(e) => editTaskTitle(task, e)}
+              />
+              {/* editar a data da tarefa */}
+              {/* <input
+                value={task.completionDate}
+                onClick={(e) => editTaskDate(task, e)}
+              /> */}
+              <h2>{task.completionDate}</h2>
               <button
                 className="btn-delete"
                 onClick={(e) => deleteTask(task, e)}
