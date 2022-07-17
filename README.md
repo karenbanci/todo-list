@@ -1,4 +1,49 @@
-# Getting Started with Create React App
+# To Do List
+
+You can create, edit or delete your tasks here.
+
+## Create a new task
+
+![Create a new task](./public/images/adicionar-tarefa.webp)
+
+## Edit a task
+
+![Edit a task title](./public/images/editar-nome-da-tarefa.webp)
+
+![Edit a task date](./public/images/organizado-por-data.webp)
+
+## Delete a task
+![Delete a task title](./public/images/deletar-tarefa.webp)
+
+____
+## Documentation used in this project
+
+_____
+### Firebase Documentation
+
+The Firebase Realtime Database is a cloud-hosted database. Data is stored as JSON and synchronized in realtime to every connected client. When you build cross-platform apps with our Android, Apple platforms, and JavaScript SDKs, all of your clients share one Realtime Database instance and automatically receive updates with the newest data. [Instalation and config Firebase Web in JavaScript](https://firebase.google.com/docs/database/web/start).
+
+### React Documentation
+
+* [Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html)
+
+* [Ussing the State Hook](https://reactjs.org/docs/hooks-state.html).
+
+### Converter images from png to webp
+
+run : npm i simple-webp-converter --save-dev
+
+in: package.json
+
+"scripts":{
+  "webp": "simple-webp-converter"
+}
+
+run: npm run webp
+
+![convert](./public/images/convert-images.webp)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,49 +113,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-  // function  removeTask() {
-  //   if(!taskId){
-  //     return { success: false, message: "Invalid task" };
-  //   }
-  //   // vai pegar a referência do nó
-  //   let taskRef = database.child('/tasks' + taskId);
-
-  //   taskRef.remove()
-  //     .then(function () {
-  //       return { success: true, message: "Task was removed with success" };
-  //     })
-  //     .catch(function (error) {
-  //       return { success: false, message: `Remove failed: ${error.message}` };
-  //     });
-
-  // }
-
-  // atualizar caso eu queira editar a tarefa
-  // function updateTask(data, completionDate) {
-  //   if (!taskId) {
-  //     return { success: false, message: "Invalid task" };
-  //   }
-
-  //   let taskRef = database.child("/tasks" + taskId);
-
-  //   let updateTask = {};
-  //   updateTask["/tasks"] = data;
-  //   updateTask["/completionDate"] = completionDate;
-
-  //   taskRef.update(updateTask)
-  //     .then(function () {
-  //       return { success: true, message: "Updated with success" };
-  //     })
-  //     .catch(function (error) {
-  //       return {
-  //         success: false,
-  //         message: `Failed: ${error.message}`,
-  //       };
-  //     });
-  // }
-
-  // taskDataBase.new = addTask;
-  // taskDataBase.remove = removeTask;
-  // taskDataBase.update = updateTask;
