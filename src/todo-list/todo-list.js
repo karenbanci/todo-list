@@ -67,8 +67,6 @@ const ToDoList = {
 
     const updateTask = {};
     updateTask["/tasks/" + id] = taskData;
-    // updateTask["/completionDate/" + id] = taskData;
-    // updateTask["/completed/" + id] = taskData;
 
     return update(ref(database), updateTask)
       .then(function () {
