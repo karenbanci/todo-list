@@ -31,15 +31,16 @@ export default function ToDoView() {
   }
   // editar a data da tarefa
     function editTaskDate(task, event) {
+      console.log(task);
+      console.log(event);
+
       event.preventDefault();
       ToDoList.updateTask(
         task.title,
-        task.target.value, // vai editar a data
+        event.target.value, // vai editar a data
         task.completed,
         task.id
-      ).then((res) => {
-        refreshTasks();
-      });
+      )
     }
 
   // essa função vou reaproveitar para quando adicionar, editar ou deletar uma tarefa, a página será atualizada
@@ -102,7 +103,7 @@ export default function ToDoView() {
               value={taskDate}
               required
               min="01-01-2022"
-              max="31-12-2023"
+              max="31-12-2050"
               onChange={(e) => setTaskDate(e.target.value)}
             />
           </div>
@@ -114,7 +115,7 @@ export default function ToDoView() {
           />
         </form>
       </div>
-      {/* imprimir cada tarefa que foi adicionada, lembrando que map só é utilizada para array, nesse caso tem que utilizar o Object para trabalhar junto com o map */}
+      {/* imprimir cada tarefa que foi adicionada, lembrando que map só é utilizada para array */}
       {tasks.map((task, id) => {
         console.log(task);
         return (
@@ -134,11 +135,14 @@ export default function ToDoView() {
                 onChange={(e) => editTaskTitle(task, e)}
               />
               {/* editar a data da tarefa */}
-              {/* <input
+              <input
+                type="date"
+                className="editTask"
                 value={task.completionDate}
-                onClick={(e) => editTaskDate(task, e)}
-              /> */}
-              <h2>{task.completionDate}</h2>
+                onChange={(e) => editTaskDate(task, e)}
+                // onBlur tira o foco do campo date, ou seja, eu escolho a data de edicao e clico fora que ele salva no banco de dados a nova data
+                onBlur={refreshTasks}
+              />
               <button
                 className="btn-delete"
                 onClick={(e) => deleteTask(task, e)}

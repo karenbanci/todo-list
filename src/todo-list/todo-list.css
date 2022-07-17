@@ -88,7 +88,6 @@
   border-radius: 10px;
   margin: 10px;
   animation: top 1s 1s both;
-
 }
 
 .task{
@@ -106,7 +105,9 @@ input[type=checkbox] {
 .editTask {
   color: #0062AB;
   font-size: 1.4rem;
+  font-weight: bold;
   border: none;
+  background: none;
 }
 
 .btn-delete {
